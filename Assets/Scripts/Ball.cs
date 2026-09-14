@@ -1,13 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+
     public float SpeedOfBall = 5f;
 
     private Rigidbody2D rb;
     private bool FirstTouch = false;
 
+    public List<int> number = new List<int>();
+    public int n = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,8 +29,13 @@ public class Ball : MonoBehaviour
             FirstTouch = true;
 
             // Move diagonally upward
-            rb.linearVelocity =
-                new Vector2(1f, 1f).normalized * SpeedOfBall;
+            rb.linearVelocity = new Vector2(1f, 1f).normalized * SpeedOfBall;
+        }
+        if (collision.gameObject.tag == "Tiles")
+        {
+            Destroy(collision.gameObject);
+
+            number.Remove(n);
         }
     }
 
@@ -34,5 +44,39 @@ public class Ball : MonoBehaviour
         // Keep ball speed constant
         rb.linearVelocity =
             rb.linearVelocity.normalized * SpeedOfBall;
+        Vector2 velocity = rb.linearVelocity;
+
+        if (Mathf.Abs(velocity.x) < 1f)
+        {
+            if (velocity.x >= 0)
+            {
+                velocity.x = 1f;
+            }
+            else
+            {
+                velocity.x = -1f;
+            }
+        }
+
+        if (Mathf.Abs(velocity.y) < 1f)
+        {
+            if (velocity.y >= 0)
+            {
+                velocity.y = 1f;
+            }
+            else
+            {
+                velocity.y = -1f;
+            }
+        }
+
+        rb.linearVelocity = velocity.normalized * SpeedOfBall;
+
+        if (number.Count == 0)
+        {
+            Debug.Log("You Win");
+        }
     }
+
+
 }
