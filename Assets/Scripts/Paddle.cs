@@ -7,11 +7,15 @@ public class Paddle : MonoBehaviour
     public float maxX;
     void Update()
     {
-        if (Input.GetTouch(0).phase == TouchPhase.Moved)
+        if (Input.touchCount > 0)
         {
-            Vector2 touchPosition = Input.GetTouch(0).position;
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(touchPosition);
-            transform.position = new Vector3(worldPosition.x, transform.position.y, transform.position.z);
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Vector2 touchPosition = touch.position;
+                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(touchPosition);
+                transform.position = new Vector3(worldPosition.x, transform.position.y, transform.position.z);
+            }
         }
 
         if (transform.position.x < minX)

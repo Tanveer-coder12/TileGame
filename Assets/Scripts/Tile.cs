@@ -40,7 +40,3 @@ public class Tile : MonoBehaviour
     }
 }
 
-public enum TileType
-{
-    Green, Blue, Red, Yellow, Purple
-}

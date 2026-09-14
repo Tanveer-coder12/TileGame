@@ -72,10 +72,7 @@ public class Ball : MonoBehaviour
 
         rb.linearVelocity = velocity.normalized * SpeedOfBall;
 
-        if (number.Count == 0)
-        {
-            Debug.Log("You Win");
-        }
+
     }
 
 
