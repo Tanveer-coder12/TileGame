@@ -1,42 +1,37 @@
-using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject TilesPrefab;
-    //public Transform TileTranformPos;
-    public int TileTranformCount = 5;
-    public Ball balls;
-
-    public SpriteRenderer sr;
-
-    float nextrow;
-    public float Padding;
+    public GameObject Tile;
+    float newYpos = 0;
+    float newXpos = 0;
+    public float padding;
     void Start()
     {
-        sr = TilesPrefab.GetComponent<SpriteRenderer>();
-        float TilesizeX = sr.bounds.size.x;
-        float TilesizeY = sr.bounds.size.y;
+        Camera cam = Camera.main;
+        float height = 2f * cam.orthographicSize - padding;
+        float width = height * cam.aspect - padding;
 
-        Vector2 screensize = Camera.main.ScreenToWorldPoint(new Vector2(UnityEngine.Screen.width, UnityEngine.Screen.height));
+        //Debug.Log("Camera Width: " + width + ", Camera Height: " + height);
+        SpriteRenderer sr = Tile.GetComponent<SpriteRenderer>();
 
-        float ScreenSizeX = -screensize.x;
-        float ScreenSizeY = screensize.y;
-        // float nextrow = ScreenSizeY;
+        float tileWidth = sr.bounds.size.x;
+        float tileHeight = sr.bounds.size.y;
 
-        for (int i = 0; i < 5; i++)
+        int TileCount = Mathf.FloorToInt(width / tileWidth);
+        for (int i = 0; i <= TileCount; i++)
         {
-            for (int j = 0; j < 8; j++)
+            for (int j = 0; j <= TileCount; j++)
             {
-                GameObject Tiles = Instantiate(TilesPrefab, new Vector3(ScreenSizeX + TilesizeX + j, ScreenSizeY + nextrow, 0), Quaternion.identity);
+                Vector3 tilePosition = new Vector3(-(width / 2) + newXpos, (height / 2) + newYpos, 0);
+                newXpos += tileWidth;
 
-                Tiles.GetComponent<Tile>().initTile(Random.Range(0, 5));
-
-
+                Instantiate(Tile, tilePosition, Quaternion.identity);
             }
+            newYpos -= tileHeight;
+            newXpos = 0;
 
-            nextrow -= TilesizeY;
         }
+
     }
 }

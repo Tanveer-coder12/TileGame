@@ -483,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 507660502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -2.52, y: -0, z: 1}
+  m_LocalPosition: {x: -2.43, y: -0, z: 1}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -651,7 +651,7 @@ Transform:
   m_GameObject: {fileID: 531068541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3, y: 5, z: 0}
+  m_LocalPosition: {x: -2.06, y: 4.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1214,7 +1214,7 @@ Transform:
   m_GameObject: {fileID: 1938603092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.65, y: 0, z: 1}
+  m_LocalPosition: {x: 2.39, y: 0, z: 1}
   m_LocalScale: {x: 6, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1264,10 +1264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d61d5a4cf94f93479dfeb7286231977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  TilesPrefab: {fileID: 4353177067298469403, guid: 11c57717876b87140bf0594b509d982c, type: 3}
-  TileTranformCount: 5
-  balls: {fileID: 1235219223}
-  sr: {fileID: 795072410424624689, guid: 11c57717876b87140bf0594b509d982c, type: 3}
+  Tile: {fileID: 4353177067298469403, guid: 11c57717876b87140bf0594b509d982c, type: 3}
+  padding: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
