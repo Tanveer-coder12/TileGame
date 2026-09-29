@@ -1,36 +1,28 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject Tile;
+    public Transform TileTransPos;
     float newYpos = 0;
     float newXpos = 0;
     public float padding;
+
+    public SpriteRenderer sp;
     void Start()
     {
-        Camera cam = Camera.main;
-        float height = 2f * cam.orthographicSize - padding;
-        float width = height * cam.aspect - padding;
-
-        //Debug.Log("Camera Width: " + width + ", Camera Height: " + height);
-        SpriteRenderer sr = Tile.GetComponent<SpriteRenderer>();
-
-        float tileWidth = sr.bounds.size.x;
-        float tileHeight = sr.bounds.size.y;
-
-        int TileCount = Mathf.FloorToInt(width / tileWidth);
-        for (int i = 0; i <= TileCount; i++)
+        sp = Tile.GetComponent<SpriteRenderer>();
+        for (int i = 0; i < 8; i++)
         {
-            for (int j = 0; j <= TileCount; j++)
+            for (int j = 0; j < 8; j++)
             {
-                Vector3 tilePosition = new Vector3(-(width / 2) + newXpos, (height / 2) + newYpos, 0);
-                newXpos += tileWidth;
-
-                Instantiate(Tile, tilePosition, Quaternion.identity);
+                GameObject Tiles = Instantiate(Tile, new Vector3(TileTransPos.position.x + newXpos, TileTransPos.position.y + newYpos, TileTransPos.position.z), Quaternion.identity);
+                Tiles.GetComponent<Tile>().initTile(Random.Range(0, 5));
+                newXpos += sp.bounds.size.x;
             }
-            newYpos -= tileHeight;
             newXpos = 0;
-
+            newYpos -= sp.bounds.size.y;
         }
 
     }

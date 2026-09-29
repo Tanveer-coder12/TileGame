@@ -8,7 +8,8 @@ public class GameOver : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             Debug.Log("Game Over");
-            Time.timeScale = 0f;
+            UIManager.Instance.GameOver();
+            //  Time.timeScale = 0f;
             Destroy(collision.gameObject);
         }
     }
