@@ -12,28 +12,26 @@ public class Level1 : LEVELMANAGER
     float newXpos = 0;
     public float padding;
     public SpriteRenderer sp;
-    public GameObject StartGame;
-    public GameObject GameOverPanel;
-
+   
     void Start()
     {
-
-        GameOverPanel.SetActive(false);
-        StartGame.SetActive(false);
+        LevelCompletePanel.SetActive(false);
         sp = Tile.GetComponent<SpriteRenderer>();
-        for (int i = 0; i < 8; i++)
+        for (int i = 2; i > 0; i--)//8
         {
-            for (int j = 0; j < 8; j++)
+            for (int j = 3; j > 0; j--)//8
             {
-                TileCount += 1;
+               TileCount += 1;//here we get total 36 tiles
                 GameObject Tiles = Instantiate(Tile, new Vector3(TileTransPos.position.x + newXpos, TileTransPos.position.y + newYpos, TileTransPos.position.z), Quaternion.identity);
+
                 Tiles.GetComponent<Tile>().initTile(Random.Range(0, 5));
+
                 newXpos += sp.bounds.size.x;
             }
             newXpos = 0;
-            newYpos -= sp.bounds.size.y;
+            newYpos -= 1;
         }
-
+       
     }
     
    
@@ -45,10 +43,7 @@ public class Level1 : LEVELMANAGER
     {
         Application.Quit();
     }
-    public void GameOver()
-    {
-        GameOverPanel.SetActive(true);
-    }
+   
     public void Restart()
     {
         SceneManager.LoadScene("Level1");

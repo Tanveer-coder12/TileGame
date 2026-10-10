@@ -45,13 +45,13 @@ public class Tile : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ball"))
         {
-           LEVELMANAGER lEVELMANAGER = FindAnyObjectByType<LEVELMANAGER>();
+           LEVELMANAGER lEVELMANAGER = FindFirstObjectByType<LEVELMANAGER>();
             if (lEVELMANAGER != null)
             {
                 lEVELMANAGER.TileCountFunc();
             }
 
-            Destroy(gameObject);
+           gameObject.SetActive(false);
         }
     }
 }

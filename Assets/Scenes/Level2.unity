@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb03c2afdcad6d42b57c15c3fa5fec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOver
+  GameOverPanel: {fileID: 967178377}
 --- !u!1 &405396491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1109,7 +1110,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "  LEVEL 1 \nCOMPLETED"
+  m_Text: "  LEVEL 2 \nCOMPLETED"
 --- !u!222 &777245597
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1202,8 +1203,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966198256}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1966198258}
+        m_TargetAssemblyTypeName: Level2, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -1274,50 +1275,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &893479513
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 893479515}
-  - component: {fileID: 893479514}
-  m_Layer: 0
-  m_Name: UiManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &893479514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893479513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f711a3cbb6aa5624689f964bbb9c098c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
---- !u!4 &893479515
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893479513}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &967178377
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,8 +2167,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966198256}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1966198258}
+        m_TargetAssemblyTypeName: Level2, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -2365,8 +2322,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966198256}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1966198258}
+        m_TargetAssemblyTypeName: Level2, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -2593,8 +2550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1966198255}
-  - component: {fileID: 1966198256}
-  - component: {fileID: 1966198257}
+  - component: {fileID: 1966198258}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2617,7 +2573,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1966198256
+--- !u!114 &1966198258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2626,30 +2582,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1966198254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d61d5a4cf94f93479dfeb7286231977, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d2c655e997e5046a99364685393baf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  m_EditorClassIdentifier: Assembly-CSharp::Level2
   TileCount: 0
+  LevelCompletePanel: {fileID: 1087215739}
   Tile: {fileID: 4353177067298469403, guid: 11c57717876b87140bf0594b509d982c, type: 3}
   TileTransPos: {fileID: 1976320729}
-  padding: 0.2
   sp: {fileID: 795072410424624689, guid: 11c57717876b87140bf0594b509d982c, type: 3}
-  StartGame: {fileID: 1087215739}
-  TilesCount: 0
-  GameOverPanel: {fileID: 967178377}
---- !u!114 &1966198257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966198254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cf894c074b8084b84c0b2809f22340, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LEVELMANAGER
-  TileCount: 0
 --- !u!1 &1976320728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,8 +2704,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966198256}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1966198258}
+        m_TargetAssemblyTypeName: Level2, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -2828,7 +2768,6 @@ SceneRoots:
   - {fileID: 507660505}
   - {fileID: 1890256612}
   - {fileID: 259497356}
-  - {fileID: 893479515}
   - {fileID: 1109976393}
   - {fileID: 155231500}
   - {fileID: 1976320729}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level3 : LEVELMANAGER
 {
@@ -8,20 +9,19 @@ public class Level3 : LEVELMANAGER
     float newXpos = 0;
     public float padding;
     public SpriteRenderer sp;
-    
-    public GameObject GameOverPanel;
+
+
     float n = 0;
 
     void Start()
     {
 
-        GameOverPanel.SetActive(false);
 
+        LevelCompletePanel.SetActive(false);
         sp = Tile.GetComponent<SpriteRenderer>();
-
-        for (int i = 3; i > 0; i--)//8
+        for (int i = 0; i <8; i++)//8
         {
-            for (int j = 8; j > 0; j--)//8
+            for (int j = 0; j <=i; j++)//8
             {
                 TileCount += 1;//here we get total 36 tiles
 
@@ -35,9 +35,23 @@ public class Level3 : LEVELMANAGER
             newYpos -= sp.bounds.size.y;
         }
 
+
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("Level4");
+    }
+    public void Exit()
+    {
+        Application.Quit();
     }
 
-  
+    public void Restart()
+    {
+        SceneManager.LoadScene("Level3");
+        Time.timeScale = 1f;
+    }
+
 
 
 }
