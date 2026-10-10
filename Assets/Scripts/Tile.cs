@@ -1,11 +1,14 @@
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tile : MonoBehaviour
 {
 
     public List<Sprite> TileSprites;
     public SpriteRenderer sr;
+    
 
     private void Start()
     {
@@ -36,6 +39,19 @@ public class Tile : MonoBehaviour
         if (number == 4)
         {
             sr.sprite = TileSprites[4];
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ball"))
+        {
+           LEVELMANAGER lEVELMANAGER = FindAnyObjectByType<LEVELMANAGER>();
+            if (lEVELMANAGER != null)
+            {
+                lEVELMANAGER.TileCountFunc();
+            }
+
+            Destroy(gameObject);
         }
     }
 }

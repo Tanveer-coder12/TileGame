@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -11,10 +8,14 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rb;
     private bool FirstTouch = false;
 
-    public List<int> number = new List<int>();
+
     public int n = 0;
+
+
     void Start()
     {
+
+
         rb = GetComponent<Rigidbody2D>();
 
         // First movement: straight down
@@ -35,7 +36,9 @@ public class Ball : MonoBehaviour
         {
             Destroy(collision.gameObject);
 
-            number.Remove(n);
+
+
+
         }
     }
 
