@@ -6,7 +6,7 @@ public class LEVELMANAGER : MonoBehaviour
     public int TileCount = 0;
     public GameObject LevelCompletePanel;
 
-    
+    public AudioSource audioSource;
 
     public void TileCountFunc()
     {

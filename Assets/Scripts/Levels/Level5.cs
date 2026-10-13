@@ -13,7 +13,7 @@ public class Level5 : LEVELMANAGER
 
    public void Start()
     {
-
+        audioSource.Play();
         LevelCompletePanel.SetActive(false);
         sp = Tile.GetComponent<SpriteRenderer>();
 

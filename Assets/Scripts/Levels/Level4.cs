@@ -15,6 +15,7 @@ public class Level4 : LEVELMANAGER
 
     public void Start()
     {
+        audioSource.Play();
         LevelCompletePanel.SetActive(false);
         sp = Tile.GetComponent<SpriteRenderer>();
         for (int i = 8; i > 0; i--)//8
