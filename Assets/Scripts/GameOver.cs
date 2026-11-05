@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ball")
         {
+            Destroy(collision.gameObject, 1f);
             GameOverPanel.SetActive(true);
         }
     }

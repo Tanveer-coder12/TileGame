@@ -32,10 +32,7 @@ public class Level5 : LEVELMANAGER
 
 
     }
-    public void NextLevel()
-    {
-        SceneManager.LoadScene("Level5");
-    }
+   
     public void Exit()
     {
         Application.Quit();
