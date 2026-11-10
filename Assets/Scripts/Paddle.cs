@@ -5,27 +5,42 @@ public class Paddle : MonoBehaviour
     public float PaddleSpeed = 8f;
     public float minX;
     public float maxX;
+
     void Update()
     {
+        // Mobile touch control
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Moved)
-            {
-                Vector2 touchPosition = touch.position;
-                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(touchPosition);
-                transform.position = new Vector3(worldPosition.x, transform.position.y, transform.position.z);
-            }
+
+            MovePaddle(touch.position);
         }
 
-        if (transform.position.x < minX)
+        // PC mouse control
+        else if (Input.GetMouseButton(0))
         {
-            transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+            MovePaddle(Input.mousePosition);
         }
-        else if (transform.position.x > maxX)
-        {
-            transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
-        }
+
+        // Keep paddle inside boundaries
+        Vector3 position = transform.position;
+
+        position.x = Mathf.Clamp(position.x, minX, maxX);
+
+        transform.position = position;
     }
+
+    void MovePaddle(Vector2 screenPosition)
+    {
+        Vector3 worldPosition =
+            Camera.main.ScreenToWorldPoint(screenPosition);
+
+        Vector3 position = transform.position;
+
+        position.x = worldPosition.x;
+
+        transform.position = position;
+    }
+
 
 }

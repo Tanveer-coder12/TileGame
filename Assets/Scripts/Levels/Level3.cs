@@ -19,9 +19,9 @@ public class Level3 : LEVELMANAGER
         audioSource.Play();
         LevelCompletePanel.SetActive(false);
         sp = Tile.GetComponent<SpriteRenderer>();
-        for (int i = 0; i <8; i++)//8
+        for (int i = 0; i < 8; i++)//8
         {
-            for (int j = 0; j <=i; j++)//8
+            for (int j = 0; j <= i; j++)//8
             {
                 TileCount += 1;//here we get total 36 tiles
 
